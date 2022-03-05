@@ -9,9 +9,10 @@ if (number) {
 
   function onButton() {
     if (
-      (!word && newWord.length === 3) ||
-      (newWord.length === 3 && word[word.length - 1] === newWord[0])
+      newWord.length === 3 &&
+      (!word || word[word.length - 1] === newWord[0])
     ) {
+      // 항상 세글자 이므로, 조건에서 세글자인 것을 &&로 디폴트 해놓음
       word = newWord;
       $word.textContent = word;
       let order = Number($order.textContent);
